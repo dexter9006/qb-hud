@@ -1,10 +1,10 @@
 Config = {}
 Config.OpenMenu = 'I' -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 Config.StressChance = 0.1 -- Default: 10% -- Percentage Stress Chance When Shooting (0-1)
-Config.UseMPH = true -- If true speed math will be done as MPH, if false KPH will be used (YOU HAVE TO CHANGE CONTENT IN STYLES.CSS TO DISPLAY THE CORRECT TEXT)
+Config.UseMPH = false -- If true speed math will be done as MPH, if false KPH will be used (YOU HAVE TO CHANGE CONTENT IN STYLES.CSS TO DISPLAY THE CORRECT TEXT)
 Config.MinimumStress = 50 -- Minimum Stress Level For Screen Shaking
-Config.MinimumSpeedUnbuckled = 50 -- Going Over This Speed Unbuckled Will Cause Stress
-Config.MinimumSpeed = 100 -- Going Over This Speed While Buckled Will Cause Stress
+Config.MinimumSpeedUnbuckled = 70 -- Going Over This Speed Unbuckled Will Cause Stress
+Config.MinimumSpeed = 150 -- Going Over This Speed While Buckled Will Cause Stress
 Config.DisableStress = false -- If true will disable stress completely for all players
 
 -- Stress
@@ -30,11 +30,11 @@ Config.WhitelistedWeaponArmed = { -- Disable showing armed icon from weapons in 
     [`weapon_wrench`] = true,
     [`weapon_battleaxe`] = true,
     [`weapon_poolcue`] = true,
-    [`weapon_briefcase`] = true,
-    [`weapon_briefcase_02`] = true,
-    [`weapon_garbagebag`] = true,
-    [`weapon_handcuffs`] = true,
-    [`weapon_bread`] = true,
+    --[`weapon_briefcase`] = true,
+    --[`weapon_briefcase_02`] = true,
+    --[`weapon_garbagebag`] = true,
+    --[`weapon_handcuffs`] = true,
+    --[`weapon_bread`] = true,
     [`weapon_stone_hatchet`] = true,
     -- throwables
     [`weapon_grenade`] = true,
@@ -75,7 +75,7 @@ Config.VehClassStress = { -- Enable/Disable gaining stress from vehicle classes 
     ['16'] = false, -- Planes
     ['18'] = false, -- Emergency
     ['19'] = false, -- Military
-    ['20'] = false, -- Commercial
+    ['20'] = true, -- Commercial
     ['21'] = false  -- Trains
 }
 
@@ -84,8 +84,8 @@ Config.WhitelistedVehicles = { -- Disable gaining stress from speeding in any ve
 }
 
 Config.WhitelistedJobs = { -- Disable stress completely for players with matching job or job type
-    ['leo'] = true,
-    ['ambulance'] = true
+    ['leo'] = false,
+    ['ambulance'] = false
 }
 
 Config.Intensity = {
@@ -150,7 +150,7 @@ Config.Menu = {
     isOutMapChecked = false, -- isOutMapChecked
     isOutCompassChecked = false, -- isOutMapChecked
     isCompassFollowChecked = true, -- isCompassFollowChecked
-    isOpenMenuSoundsChecked = true, -- isOpenMenuSoundsChecked
+    isOpenMenuSoundsChecked = false, -- isOpenMenuSoundsChecked
     isResetSoundsChecked = true, -- isResetSoundsChecked
     isListSoundsChecked = true, -- isListSoundsChecked
     isMapNotifChecked = true, -- isMapNotifChecked

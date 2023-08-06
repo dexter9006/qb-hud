@@ -631,6 +631,7 @@ local function updatePlayerHud(data)
             cinematic = data[29],
             dev = data[30],
             radioActive = data[31],
+            km = data[32]
         })
     end
 end
@@ -656,6 +657,7 @@ local function updateVehicleHud(data)
             showSeatbelt = data[8],
             showSquareB = data[9],
             showCircleB = data[10],
+            km = data[11],
         })
     end
 end
@@ -670,6 +672,20 @@ local function getFuelLevel(vehicle)
         lastFuelCheck = math.floor(exports['cdn-fuel']:GetFuel(vehicle))
     end
     return lastFuelCheck
+end
+
+local dist
+
+RegisterNetEvent("qb-hud:km", function(km)
+    print(dist)
+    dist = round(km/1000, 1)
+end)
+
+function getDistance(vehicle)
+    local vehicle = vehicle
+    local plate = GetVehicleNumberPlateText(vehicle)
+    local result
+    return dist
 end
 
 -- HUD Update loop
@@ -748,6 +764,7 @@ CreateThread(function()
                 Menu.isCinematicModeChecked,
                 dev,
                 radioActive,
+                getDistance(vehicle),
             })
             end
             -- Vehicle hud
@@ -792,6 +809,7 @@ CreateThread(function()
                     Menu.isCinematicModeChecked,
                     dev,
                     radioActive,
+                    getDistance(vehicle),
                 })
                 updateVehicleHud({
                     show,
@@ -804,6 +822,7 @@ CreateThread(function()
                     showSeatbelt,
                     showSquareB,
                     showCircleB,
+                    getDistance(vehicle), 
                 })
                 showAltitude = false
                 showSeatbelt = true
@@ -1037,11 +1056,13 @@ CreateThread(function()
         Wait(0)
     end
 end)
-
 -- Compass
 function round(num, numDecimalPlaces)
-    local mult = 10^(numDecimalPlaces or 0)
-    return math.floor(num + 0.5 * mult)
+    if numDecimalPlaces and numDecimalPlaces>0 then
+        local mult = 10^numDecimalPlaces
+        return math.floor(num * mult + 0.5) / mult
+      end
+      return math.floor(num + 0.5)
 end
 
 local prevBaseplateStats = { nil, nil, nil, nil, nil, nil, nil}

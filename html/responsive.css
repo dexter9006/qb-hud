@@ -447,6 +447,11 @@
     left: 7.2vh!important;
     bottom: 6.6vh!important;
   }
+  #kmeter {
+    position: relative;
+    left: 2vh!important;
+    bottom: 5vh!important;
+  }
   #altitudegauge {
     position: relative;
     left: 11vh!important;
@@ -460,6 +465,9 @@
   }
   speed:after {
     font-size: 1.2vh!important;
+  }
+  km {
+    font-size: 1.5vh!important;
   }
   altitude {
     font-size: 2vh!important;

@@ -749,6 +749,7 @@ const playerHud = {
       hp: 0,
       armed: 0,
       speed: 0,
+      km : 0,
       engine: 0,
       cinematic: 0,
       dev: 0,
@@ -812,6 +813,7 @@ const playerHud = {
       this.nitroActive = data.nitroActive;
       this.harness = data.harness;
       this.speed = data.speed;
+      this.km = data.km;
       this.armed = data.armed;
       this.parachute = data.parachute;
       this.hp = data.hp*5;
@@ -1006,10 +1008,12 @@ const vehHud = {
   data() {
     return {
       speedometer: 66,
+      kmeter : 66,
       fuelgauge: 69,
       altitudegauge: 75,
       fuel: 0,
       speed: 0,
+      km : 0,
       seatbelt: 0,
       showSquareB: 0,
       show: false,
@@ -1035,6 +1039,7 @@ const vehHud = {
     vehicleHud(data) {
       this.show = data.show;
       this.speed = data.speed;
+      this.km = data.km;
       this.altitude = data.altitude;
       this.fuel = (data.fuel * 0.71);
       this.showSeatbelt = data.showSeatbelt;

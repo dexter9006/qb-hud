@@ -118,6 +118,7 @@ speed:after {
   font-weight: 900;
 }
 
+
 altitude:after {
   content: "ALT";
   display: block;
@@ -131,6 +132,17 @@ speed {
   transform: rotate(150deg);
   font-size: 2.4vh;
   position: fixed; 
+  color: #fff; 
+  text-align: center;
+  font-weight: 600;
+  text-shadow: -1px -1px 0 rgba(0,0,0, 0.7), 1px -1px 0 rgba(0,0,0, 0.7), -1px 1px 0 rgba(0,0,0, 0.7), 1px 1px 0 rgba(0,0,0, 0.7); 
+}
+
+
+km {
+  transform: rotate(150deg);
+  font-size: 1vh;
+  position: block; 
   color: #fff; 
   text-align: center;
   font-weight: 600;

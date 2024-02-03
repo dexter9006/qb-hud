@@ -675,17 +675,18 @@ local function getFuelLevel(vehicle)
 end
 
 local dist
+local result 
 
 RegisterNetEvent("qb-hud:km", function(km)
-    print(dist)
-    dist = round(km/1000, 1)
+    result = km
 end)
-
 function getDistance(vehicle)
     local vehicle = vehicle
     local plate = GetVehicleNumberPlateText(vehicle)
-    local result
-    return dist
+    if result ~= nil then
+        return round(result/1000,1)
+    end
+    
 end
 
 -- HUD Update loop
@@ -764,7 +765,7 @@ CreateThread(function()
                 Menu.isCinematicModeChecked,
                 dev,
                 radioActive,
-                getDistance(vehicle),
+                --getDistance(vehicle),
             })
             end
             -- Vehicle hud
@@ -809,7 +810,7 @@ CreateThread(function()
                     Menu.isCinematicModeChecked,
                     dev,
                     radioActive,
-                    getDistance(vehicle),
+                    --getDistance(vehicle),
                 })
                 updateVehicleHud({
                     show,
